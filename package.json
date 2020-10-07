@@ -1,0 +1,15 @@
+{
+  "name": "questions-app",
+  "version": "1.0.0",
+  "description": "Podcast App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "js",
+    "javascript"
+  ],
+  "author": "Sergey Yakimov <s.yakimov87@yandex.ru>",
+  "license": "ISC"
+}
