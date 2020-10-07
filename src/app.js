@@ -1,1 +1,1 @@
-console.log('app working...')
+import './style.css'
