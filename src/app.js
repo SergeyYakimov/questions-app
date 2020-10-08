@@ -1,5 +1,6 @@
 import './style.css'
 import {isValid} from './utils';
+import {Question} from './question';
 
 const form = document.getElementById('form')
 const input = form.querySelector('#question-input')
@@ -21,9 +22,10 @@ function submitFormHandler(event) {
 
 
     submitBtn.disabled = true
-    // Async request to Server
-    input.value = ''
-    input.className = ''
-    submitBtn.disabled = false
+    Question.create(question).then(() => {
+      input.value = ''
+      input.className = ''
+      submitBtn.disabled = false
+    })
   }
 }
