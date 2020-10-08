@@ -13,6 +13,18 @@ export class Question {
         return question
       })
       .then(addToLocalStorage)
+      .then(Question.renderList)
+  }
+
+  static renderList() {
+    const list = getQuestionsFromLocalStorage()
+
+    const html = list.length
+      ? list.map(toCard).join('')
+      : '<div class="mui--text-headline">Вы пока ничего не спросили</div>'
+
+    const listHTML = document.getElementById('list')
+    listHTML.innerHTML = html
   }
 }
 
@@ -24,4 +36,13 @@ function addToLocalStorage(question) {
 
 function getQuestionsFromLocalStorage() {
   return JSON.parse(localStorage.getItem('questions') || '[]')
+}
+
+function toCard(question) {
+  return `<div class="mui--text-black-54">
+            ${new Date(question.date).toLocaleDateString()}
+            ${new Date(question.date).toLocaleTimeString()}
+          </div>
+              <div>${question.text}</div>
+          <br>`
 }
